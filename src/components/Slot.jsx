@@ -17,11 +17,12 @@ export default function Slot({ iTask, onDelete, setTasks }) {
   };
 
   const onSlotClick = () => {
-    setTask({
+    const newTask = {
       ...task,
       status: `${task.status === "Completed" ? "To-Do" : "Completed"}`,
-    });
-    setTasks(task);
+    };
+    setTasks(newTask);
+    setTask(newTask);
   };
 
   return (
