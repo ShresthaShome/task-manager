@@ -1,0 +1,55 @@
+Project Requirements Document
+
+Project Name: Task Manager Application
+
+1. Overview
+The Task Manager Application is a simple, lightweight task management tool built with React. It
+will allow users to create, update, delete, and manage their tasks efficiently, with all data stored
+in localStorage.
+
+2. Objectives
+● Provide an intuitive interface for users to manage tasks.
+● Support adding, updating, and deleting tasks.
+● Enable categorization of tasks with priorities and statuses.
+● Persist tasks using localStorage.
+
+3. Features & Requirements
+
+3.1. Core Features
+● Create Task: Users can add a new task with a title, description, priority, and due date.
+● Edit Task: Users can update task details.
+● Delete Task: Users can remove tasks individually or in bulk.
+● Mark as Completed: Users can mark tasks as done.
+● Task Status: Users can categorize tasks as To-Do, In Progress, Completed.
+● LocalStorage Persistence: All tasks are saved in localStorage to ensure persistence
+across sessions.
+
+3.2. Additional Features (Optional)
+● Dark Mode Support
+
+4. User Stories
+1. As a user, I want to add new tasks so that I can keep track of my work.
+2. As a user, I want to edit tasks to update details if needed.
+3. As a user, I want to delete tasks to keep my task list clean.
+4. As a user, I want to mark tasks as completed when I finish them.
+5. As a user, I want my tasks to be saved across page reloads.
+
+5. Technical Stack
+● Frontend: React
+● Data Storage: LocalStorage (window.localStorage)
+● UI Library: Bootstrap (Optional)
+
+6. UI/UX Design Considerations
+● Simple and clean UI with minimal distractions.
+● Responsive design for both desktop and mobile.
+
+7. Success Metrics
+● Smooth user experience with minimal clicks.
+● Instant task updates without page reloads.
+● Efficient data retrieval and persistence via localStorage.
+
+8. Data Structure
+"title": "Task Title",
+"description": "Task Description",
+"status": "In Progress",
+"priority": "High
