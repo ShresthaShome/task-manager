@@ -29,10 +29,10 @@ function App() {
     e.preventDefault();
     if (Object.values(task).some((value) => !value.trim())) return;
 
-    const newTasks = [...tasks, task];
+    const newTasks = [...tasks, { ...task, date: new Date().toISOString() }];
 
     setTasks(newTasks);
-    //setTask(cleanTask);
+    setTask(cleanTask);
   };
 
   const handleDelete = (i) => {
@@ -45,6 +45,23 @@ function App() {
         prevTasks.map((task, id) => (id === i ? { ...x } : task))
       );
     };
+  };
+
+  const handleMultiDelete = () => {
+    setTasks((prevTasks) => {
+      const newTasks = prevTasks.filter(
+        (_, i) => !document.getElementById(`checkbox-${i}`).checked
+      );
+
+      setTimeout(() => {
+        prevTasks.forEach((_, i) => {
+          const checkbox = document.getElementById(`checkbox-${i}`);
+          if (checkbox) checkbox.checked = false;
+        });
+      }, 0);
+
+      return newTasks;
+    });
   };
 
   return (
@@ -119,18 +136,21 @@ function App() {
             <option value="priority">Priority</option>
             <option value="status">Status</option>
           </select>
+          <button onClick={() => handleMultiDelete()}>Delete Multiple</button>
         </>
       )}
 
       {category === "all" && (
         <ul>
           {tasks.map((t, i) => (
-            <Slot
-              key={i}
-              iTask={t}
-              onDelete={() => handleDelete(i)}
-              setTasks={handleSave(i)}
-            />
+            <div key={t.date}>
+              <Slot
+                id={i}
+                iTask={t}
+                onDelete={() => handleDelete(i)}
+                setTasks={handleSave(i)}
+              />
+            </div>
           ))}
         </ul>
       )}
@@ -143,12 +163,14 @@ function App() {
               <ul>
                 {tasks
                   .map((t, i) => (
-                    <Slot
-                      key={i}
-                      iTask={t}
-                      onDelete={() => handleDelete(i)}
-                      setTasks={handleSave(i)}
-                    />
+                    <div key={t.date}>
+                      <Slot
+                        id={i}
+                        iTask={t}
+                        onDelete={() => handleDelete(i)}
+                        setTasks={handleSave(i)}
+                      />
+                    </div>
                   ))
                   .filter((_, i) => tasks[i].status === "To-Do")}
               </ul>
@@ -160,12 +182,14 @@ function App() {
               <ul>
                 {tasks
                   .map((t, i) => (
-                    <Slot
-                      key={i}
-                      iTask={t}
-                      onDelete={() => handleDelete(i)}
-                      setTasks={handleSave(i)}
-                    />
+                    <div key={t.date}>
+                      <Slot
+                        id={i}
+                        iTask={t}
+                        onDelete={() => handleDelete(i)}
+                        setTasks={handleSave(i)}
+                      />
+                    </div>
                   ))
                   .filter((_, i) => tasks[i].status === "In Progress")}
               </ul>
@@ -177,12 +201,14 @@ function App() {
               <ul>
                 {tasks
                   .map((t, i) => (
-                    <Slot
-                      key={i}
-                      iTask={t}
-                      onDelete={() => handleDelete(i)}
-                      setTasks={handleSave(i)}
-                    />
+                    <div key={t.date}>
+                      <Slot
+                        id={i}
+                        iTask={t}
+                        onDelete={() => handleDelete(i)}
+                        setTasks={handleSave(i)}
+                      />
+                    </div>
                   ))
                   .filter((_, i) => tasks[i].status === "Completed")}
               </ul>
@@ -199,12 +225,14 @@ function App() {
               <ul>
                 {tasks
                   .map((t, i) => (
-                    <Slot
-                      key={i}
-                      iTask={t}
-                      onDelete={() => handleDelete(i)}
-                      setTasks={handleSave(i)}
-                    />
+                    <div key={t.date}>
+                      <Slot
+                        id={i}
+                        iTask={t}
+                        onDelete={() => handleDelete(i)}
+                        setTasks={handleSave(i)}
+                      />
+                    </div>
                   ))
                   .filter((_, i) => tasks[i].priority === "high")}
               </ul>
@@ -217,12 +245,14 @@ function App() {
               <ul>
                 {tasks
                   .map((t, i) => (
-                    <Slot
-                      key={i}
-                      iTask={t}
-                      onDelete={() => handleDelete(i)}
-                      setTasks={handleSave(i)}
-                    />
+                    <div key={t.date}>
+                      <Slot
+                        id={i}
+                        iTask={t}
+                        onDelete={() => handleDelete(i)}
+                        setTasks={handleSave(i)}
+                      />
+                    </div>
                   ))
                   .filter((_, i) => tasks[i].priority === "medium")}
               </ul>
@@ -235,12 +265,14 @@ function App() {
               <ul>
                 {tasks
                   .map((t, i) => (
-                    <Slot
-                      key={i}
-                      iTask={t}
-                      onDelete={() => handleDelete(i)}
-                      setTasks={handleSave(i)}
-                    />
+                    <div key={t.date}>
+                      <Slot
+                        id={i}
+                        iTask={t}
+                        onDelete={() => handleDelete(i)}
+                        setTasks={handleSave(i)}
+                      />
+                    </div>
                   ))
                   .filter((_, i) => tasks[i].priority === "low")}
               </ul>

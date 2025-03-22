@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Slot({ iTask, onDelete, setTasks }) {
+export default function Slot({ id, iTask, onDelete, setTasks }) {
   const [edit, setEdit] = useState(false);
   const [task, setTask] = useState(iTask);
 
@@ -28,6 +28,11 @@ export default function Slot({ iTask, onDelete, setTasks }) {
   return (
     <div>
       <div style={{ display: `${!edit ? "block" : "none"}` }}>
+        <input
+          type="checkbox"
+          id={`checkbox-${id}`}
+          style={{ display: `${!edit ? "block" : "none"}` }}
+        />
         <div onClick={onSlotClick}>
           <strong>{task.title}</strong> -{" "}
           {task.description.length > 50
