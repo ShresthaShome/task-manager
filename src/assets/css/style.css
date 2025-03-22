@@ -8,14 +8,17 @@
   height: 100%;
   margin: 0;
   padding: 0;
-  /*background: linear-gradient(#fbfad6, #e9c9a0, #fbfad6);*/
   background: linear-gradient(#7d7360, #86864f, #7d7360);
+}
+
+.dark {
+  background: linear-gradient(#b5b36f, #a68b68, #b5b36f);
 }
 
 main {
   margin-top: 50px;
   padding: 25px;
-  min-width: 400px;
+  min-width: 300px;
 }
 
 .add {
@@ -50,7 +53,9 @@ h3 {
 }
 
 form > button {
-  width: 90%;
+  width: 80%;
+  max-height: 50px;
+  text-align: center;
   margin: auto;
   margin-top: 10px;
   background: #3601f6;
@@ -136,4 +141,29 @@ footer {
 
 a {
   color: #b5132e;
+}
+
+.theme-button {
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 50%;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  border: 1px solid transparent;
+}
+
+@media screen and (min-width: 800px) {
+  main {
+    min-width: 500px;
+  }
+}
+
+input,
+textarea,
+select {
+  border-radius: 5px;
 }

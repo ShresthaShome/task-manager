@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import "./assets/css/style.css";
 import Slot from "./components/Slot";
+import ThemeButton from "./components/ThemeButton";
 
 function App() {
   const cleanTask = {
@@ -66,6 +67,7 @@ function App() {
 
   return (
     <>
+      <ThemeButton />
       <main>
         <h1>Task Manager</h1>
         <h2>Add New Task</h2>
