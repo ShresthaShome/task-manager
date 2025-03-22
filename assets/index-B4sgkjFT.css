@@ -105,10 +105,10 @@ button:focus-visible {
   height: 100%;
   margin: 0;
   padding: 0;
-  background: linear-gradient(#7d7360, #86864f, #7d7360);
+  background: linear-gradient(#546a93, #6886f1, #546a93);
 }
 .dark {
-  background: linear-gradient(#b5b36f, #a68b68, #b5b36f);
+  background: linear-gradient(#7d7360, #86864f, #7d7360);
 }
 main {
   margin-top: 50px;
@@ -135,7 +135,7 @@ h1 {
   color: #edea24;
 }
 h2 {
-  color: #00a3fb;
+  color: #00fbf7;
 }
 h3 {
   color: #0cd1c7;
@@ -149,7 +149,8 @@ form > button {
   font-size: larger;
 }
 label {
-  color: #02fa1f;
+  font-weight: 400;
+  color: #7dff8c;
 }
 select {
   min-width: 100px;
