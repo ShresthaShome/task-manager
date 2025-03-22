@@ -2,3 +2,138 @@
   display: flex;
   flex-direction: column;
 }
+
+:root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  /*background: linear-gradient(#fbfad6, #e9c9a0, #fbfad6);*/
+  background: linear-gradient(#7d7360, #86864f, #7d7360);
+}
+
+main {
+  margin-top: 50px;
+  padding: 25px;
+  min-width: 400px;
+}
+
+.add {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-inline: 5px;
+  padding: 5px;
+}
+
+.add > input,
+textarea {
+  width: 60%;
+  min-height: 30px;
+  font-size: 18px;
+}
+
+.add > select {
+  width: 62%;
+}
+
+h1 {
+  color: #edea24;
+}
+
+h2 {
+  color: #00a3fb;
+}
+
+h3 {
+  color: #0cd1c7;
+}
+
+form > button {
+  width: 90%;
+  margin: auto;
+  margin-top: 10px;
+  background: #3601f6;
+  font-size: larger;
+}
+
+label {
+  color: #02fa1f;
+}
+
+select {
+  min-width: 100px;
+  min-height: 30px;
+  text-align: center;
+  font-size: medium;
+}
+
+.delbutton {
+  width: 130px;
+  height: 30px;
+  padding: 0;
+  font-size: 16px;
+  margin-left: 10px;
+  background: #ff5874;
+}
+
+.slot {
+  min-width: 100%;
+  margin-left: -40px;
+  margin-top: 10px;
+  border: 1px solid #7f7fd5;
+}
+
+.single {
+  display: flex;
+  gap: 50px;
+  padding: 5px;
+  justify-content: space-between;
+  align-items: center;
+  border: #02fa1f 1px solid;
+}
+
+.sbuttons {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 5px;
+}
+
+.sbuttons > button {
+  width: 100px;
+  height: 22px;
+  padding: 0;
+  font-size: 14px;
+  background: #f9f900;
+}
+
+.single > input {
+  width: 20px;
+  height: 20px;
+}
+
+.mbuttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  gap: 10px;
+}
+
+.mbuttons > button {
+  width: 100px;
+  height: 30px;
+  padding: 0;
+  font-size: 14px;
+  background: #f9f900;
+}
+
+footer {
+  color: #c4c1b8;
+}
+
+a {
+  color: #b5132e;
+}

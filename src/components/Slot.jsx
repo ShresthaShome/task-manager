@@ -26,25 +26,28 @@ export default function Slot({ id, iTask, onDelete, setTasks }) {
   };
 
   return (
-    <div>
+    <div className="slot">
       <div style={{ display: `${!edit ? "block" : "none"}` }}>
-        <input
-          type="checkbox"
-          id={`checkbox-${id}`}
-          style={{ display: `${!edit ? "block" : "none"}` }}
-        />
-        <div onClick={onSlotClick}>
-          <strong>{task.title}</strong> -{" "}
-          {task.description.length > 50
-            ? `${task.description.substring(0, 50)}...`
-            : task.description}{" "}
-          (Status: {task.status})
-        </div>
-        <div>
-          <button disabled={edit} onClick={handleEdit}>
-            Edit
-          </button>
-          <button onClick={onDelete}>X</button>
+        <div className="single">
+          <input
+            type="checkbox"
+            id={`checkbox-${id}`}
+            style={{ display: `${!edit ? "block" : "none"}` }}
+          />
+          <div onClick={onSlotClick}>
+            <strong>{task.title}</strong> -{" "}
+            {task.description.length > 20
+              ? `${task.description.substring(0, 20)}...`
+              : task.description}{" "}
+            <br />
+            (Status: {task.status})
+          </div>
+          <div className="sbuttons">
+            <button disabled={edit} onClick={handleEdit}>
+              Edit
+            </button>
+            <button onClick={onDelete}>X</button>
+          </div>
         </div>
       </div>
 
@@ -52,7 +55,7 @@ export default function Slot({ id, iTask, onDelete, setTasks }) {
         onSubmit={saveTask}
         style={{ display: `${edit ? "block" : "none"}` }}
       >
-        <div>
+        <div className="add">
           <label htmlFor="etitle">Edit title: </label>
           <input
             type="text"
@@ -63,7 +66,7 @@ export default function Slot({ id, iTask, onDelete, setTasks }) {
             required
           />
         </div>
-        <div>
+        <div className="add">
           <label htmlFor="edescription">Edit description: </label>
           <textarea
             id="edescription"
@@ -75,7 +78,7 @@ export default function Slot({ id, iTask, onDelete, setTasks }) {
             required
           />
         </div>
-        <div>
+        <div className="add">
           <label htmlFor="elastDate">Edit last date: </label>
           <input
             type="date"
@@ -86,7 +89,7 @@ export default function Slot({ id, iTask, onDelete, setTasks }) {
             required
           />
         </div>
-        <div>
+        <div className="add">
           <label htmlFor="epriority">Edit priority: </label>
           <select
             id="epriority"
@@ -99,7 +102,7 @@ export default function Slot({ id, iTask, onDelete, setTasks }) {
             <option value="high">High</option>
           </select>
         </div>
-        <div>
+        <div className="add">
           <label htmlFor="status">Edit status: </label>
           <select
             id="status"
@@ -112,7 +115,7 @@ export default function Slot({ id, iTask, onDelete, setTasks }) {
             <option value="Completed">Completed</option>
           </select>
         </div>
-        <div>
+        <div className="mbuttons">
           <button type="submit">Save</button>
           <button onClick={onDelete}>X</button>
         </div>

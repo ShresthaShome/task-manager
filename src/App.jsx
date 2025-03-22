@@ -32,7 +32,7 @@ function App() {
     const newTasks = [...tasks, { ...task, date: new Date().toISOString() }];
 
     setTasks(newTasks);
-    setTask(cleanTask);
+    //setTask(cleanTask);
   };
 
   const handleDelete = (i) => {
@@ -65,222 +65,234 @@ function App() {
   };
 
   return (
-    <main>
-      <h1>Task Manager</h1>
-      <h2>Add New Task</h2>
-      <form onSubmit={addTask} className="form">
-        <div>
-          <label htmlFor="title">Title: </label>
-          <input
-            type="text"
-            id="title"
-            value={task.title}
-            onChange={(e) => setTask({ ...task, title: e.target.value })}
-            placeholder="Enter a title..."
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="description">Description: </label>
-          <textarea
-            id="description"
-            value={task.description}
-            rows={1}
-            cols={18}
-            onChange={(e) => setTask({ ...task, description: e.target.value })}
-            placeholder="Enter description..."
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="lastDate">Last Date: </label>
-          <input
-            type="date"
-            id="lastDate"
-            value={task.lastDate}
-            onChange={(e) => setTask({ ...task, lastDate: e.target.value })}
-            placeholder="Enter a last date..."
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="priority">Priority: </label>
-          <select
-            id="priority"
-            value={task.priority}
-            onChange={(e) => setTask({ ...task, priority: e.target.value })}
-            required
-          >
-            <option value="" disabled>
-              Select Priority
-            </option>
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-          </select>
-        </div>
+    <>
+      <main>
+        <h1>Task Manager</h1>
+        <h2>Add New Task</h2>
+        <form onSubmit={addTask} className="form">
+          <div className="add">
+            <label htmlFor="title">Title: </label>
+            <input
+              type="text"
+              id="title"
+              value={task.title}
+              onChange={(e) => setTask({ ...task, title: e.target.value })}
+              placeholder="Enter a title..."
+              required
+            />
+          </div>
+          <div className="add">
+            <label htmlFor="description">Description: </label>
+            <textarea
+              id="description"
+              value={task.description}
+              onChange={(e) =>
+                setTask({ ...task, description: e.target.value })
+              }
+              placeholder="Enter description..."
+              required
+            />
+          </div>
+          <div className="add">
+            <label htmlFor="lastDate">Last Date: </label>
+            <input
+              type="date"
+              id="lastDate"
+              value={task.lastDate}
+              onChange={(e) => setTask({ ...task, lastDate: e.target.value })}
+              placeholder="Enter a last date..."
+              required
+            />
+          </div>
+          <div className="add">
+            <label htmlFor="priority">Priority: </label>
+            <select
+              id="priority"
+              value={task.priority}
+              onChange={(e) => setTask({ ...task, priority: e.target.value })}
+              required
+            >
+              <option value="" disabled>
+                Select Priority
+              </option>
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
 
-        <button type="submit">Add Task</button>
-      </form>
+          <button type="submit">Add Task</button>
+        </form>
 
-      {!!tasks.length && (
-        <>
-          <h2>Your Tasks</h2>
-          <label htmlFor="category">Categorize by </label>{" "}
-          <select
-            id="category"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          >
-            <option value="all">All</option>
-            <option value="priority">Priority</option>
-            <option value="status">Status</option>
-          </select>
-          <button onClick={() => handleMultiDelete()}>Delete Multiple</button>
-        </>
-      )}
+        {!!tasks.length && (
+          <>
+            <h2>Your Tasks</h2>
+            <label htmlFor="category">Categorize by </label>{" "}
+            <select
+              id="category"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              <option value="all">All</option>
+              <option value="priority">Priority</option>
+              <option value="status">Status</option>
+            </select>
+            <button className="delbutton" onClick={() => handleMultiDelete()}>
+              Delete Multiple
+            </button>
+          </>
+        )}
 
-      {category === "all" && (
-        <ul>
-          {tasks.map((t, i) => (
-            <div key={t.date}>
-              <Slot
-                id={i}
-                iTask={t}
-                onDelete={() => handleDelete(i)}
-                setTasks={handleSave(i)}
-              />
-            </div>
-          ))}
-        </ul>
-      )}
+        {category === "all" && (
+          <ul>
+            {tasks.map((t, i) => (
+              <div key={t.date}>
+                <Slot
+                  id={i}
+                  iTask={t}
+                  onDelete={() => handleDelete(i)}
+                  setTasks={handleSave(i)}
+                />
+              </div>
+            ))}
+          </ul>
+        )}
 
-      {category === "status" && (
-        <>
-          {tasks.some((x) => x.status === "To-Do") && (
-            <>
-              <h3>To-Do</h3>
-              <ul>
-                {tasks
-                  .map((t, i) => (
-                    <div key={t.date}>
-                      <Slot
-                        id={i}
-                        iTask={t}
-                        onDelete={() => handleDelete(i)}
-                        setTasks={handleSave(i)}
-                      />
-                    </div>
-                  ))
-                  .filter((_, i) => tasks[i].status === "To-Do")}
-              </ul>
-            </>
-          )}
-          {tasks.some((x) => x.status === "In Progress") && (
-            <>
-              <h3>In Progress</h3>
-              <ul>
-                {tasks
-                  .map((t, i) => (
-                    <div key={t.date}>
-                      <Slot
-                        id={i}
-                        iTask={t}
-                        onDelete={() => handleDelete(i)}
-                        setTasks={handleSave(i)}
-                      />
-                    </div>
-                  ))
-                  .filter((_, i) => tasks[i].status === "In Progress")}
-              </ul>
-            </>
-          )}
-          {tasks.some((x) => x.status === "Completed") && (
-            <>
-              <h3>Completed</h3>
-              <ul>
-                {tasks
-                  .map((t, i) => (
-                    <div key={t.date}>
-                      <Slot
-                        id={i}
-                        iTask={t}
-                        onDelete={() => handleDelete(i)}
-                        setTasks={handleSave(i)}
-                      />
-                    </div>
-                  ))
-                  .filter((_, i) => tasks[i].status === "Completed")}
-              </ul>
-            </>
-          )}
-        </>
-      )}
+        {category === "status" && (
+          <>
+            {tasks.some((x) => x.status === "To-Do") && (
+              <>
+                <h3>To-Do</h3>
+                <ul>
+                  {tasks
+                    .map((t, i) => (
+                      <div key={t.date}>
+                        <Slot
+                          id={i}
+                          iTask={t}
+                          onDelete={() => handleDelete(i)}
+                          setTasks={handleSave(i)}
+                        />
+                      </div>
+                    ))
+                    .filter((_, i) => tasks[i].status === "To-Do")}
+                </ul>
+              </>
+            )}
+            {tasks.some((x) => x.status === "In Progress") && (
+              <>
+                <h3>In Progress</h3>
+                <ul>
+                  {tasks
+                    .map((t, i) => (
+                      <div key={t.date}>
+                        <Slot
+                          id={i}
+                          iTask={t}
+                          onDelete={() => handleDelete(i)}
+                          setTasks={handleSave(i)}
+                        />
+                      </div>
+                    ))
+                    .filter((_, i) => tasks[i].status === "In Progress")}
+                </ul>
+              </>
+            )}
+            {tasks.some((x) => x.status === "Completed") && (
+              <>
+                <h3>Completed</h3>
+                <ul>
+                  {tasks
+                    .map((t, i) => (
+                      <div key={t.date}>
+                        <Slot
+                          id={i}
+                          iTask={t}
+                          onDelete={() => handleDelete(i)}
+                          setTasks={handleSave(i)}
+                        />
+                      </div>
+                    ))
+                    .filter((_, i) => tasks[i].status === "Completed")}
+                </ul>
+              </>
+            )}
+          </>
+        )}
 
-      {category === "priority" && (
-        <>
-          {tasks.some((x) => x.priority === "high") && (
-            <>
-              <h3>High Priority</h3>
-              <ul>
-                {tasks
-                  .map((t, i) => (
-                    <div key={t.date}>
-                      <Slot
-                        id={i}
-                        iTask={t}
-                        onDelete={() => handleDelete(i)}
-                        setTasks={handleSave(i)}
-                      />
-                    </div>
-                  ))
-                  .filter((_, i) => tasks[i].priority === "high")}
-              </ul>
-            </>
-          )}
+        {category === "priority" && (
+          <>
+            {tasks.some((x) => x.priority === "high") && (
+              <>
+                <h3>High Priority</h3>
+                <ul>
+                  {tasks
+                    .map((t, i) => (
+                      <div key={t.date}>
+                        <Slot
+                          id={i}
+                          iTask={t}
+                          onDelete={() => handleDelete(i)}
+                          setTasks={handleSave(i)}
+                        />
+                      </div>
+                    ))
+                    .filter((_, i) => tasks[i].priority === "high")}
+                </ul>
+              </>
+            )}
 
-          {tasks.some((x) => x.priority === "medium") && (
-            <>
-              <h3>Medium Priority</h3>
-              <ul>
-                {tasks
-                  .map((t, i) => (
-                    <div key={t.date}>
-                      <Slot
-                        id={i}
-                        iTask={t}
-                        onDelete={() => handleDelete(i)}
-                        setTasks={handleSave(i)}
-                      />
-                    </div>
-                  ))
-                  .filter((_, i) => tasks[i].priority === "medium")}
-              </ul>
-            </>
-          )}
+            {tasks.some((x) => x.priority === "medium") && (
+              <>
+                <h3>Medium Priority</h3>
+                <ul>
+                  {tasks
+                    .map((t, i) => (
+                      <div key={t.date}>
+                        <Slot
+                          id={i}
+                          iTask={t}
+                          onDelete={() => handleDelete(i)}
+                          setTasks={handleSave(i)}
+                        />
+                      </div>
+                    ))
+                    .filter((_, i) => tasks[i].priority === "medium")}
+                </ul>
+              </>
+            )}
 
-          {tasks.some((x) => x.priority === "low") && (
-            <>
-              <h3>Low Priority</h3>
-              <ul>
-                {tasks
-                  .map((t, i) => (
-                    <div key={t.date}>
-                      <Slot
-                        id={i}
-                        iTask={t}
-                        onDelete={() => handleDelete(i)}
-                        setTasks={handleSave(i)}
-                      />
-                    </div>
-                  ))
-                  .filter((_, i) => tasks[i].priority === "low")}
-              </ul>
-            </>
-          )}
-        </>
-      )}
-    </main>
+            {tasks.some((x) => x.priority === "low") && (
+              <>
+                <h3>Low Priority</h3>
+                <ul>
+                  {tasks
+                    .map((t, i) => (
+                      <div key={t.date}>
+                        <Slot
+                          id={i}
+                          iTask={t}
+                          onDelete={() => handleDelete(i)}
+                          setTasks={handleSave(i)}
+                        />
+                      </div>
+                    ))
+                    .filter((_, i) => tasks[i].priority === "low")}
+                </ul>
+              </>
+            )}
+          </>
+        )}
+      </main>
+      <footer>
+        Made with ❤️ by{" "}
+        <a href="https://github.com/shresthashome">
+          <u>Ullas Shome</u>
+        </a>
+        <br />
+        Copyright &copy;2025 Ullas Shome. All Rights Reserved.
+      </footer>
+    </>
   );
 }
 
