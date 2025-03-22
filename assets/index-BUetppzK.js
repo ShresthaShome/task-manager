@@ -1,31 +1,31 @@
 (function () {
   const K = document.createElement("link").relList;
   if (K && K.supports && K.supports("modulepreload")) return;
-  for (const j of document.querySelectorAll('link[rel="modulepreload"]')) r(j);
-  new MutationObserver((j) => {
-    for (const k of j)
+  for (const N of document.querySelectorAll('link[rel="modulepreload"]')) r(N);
+  new MutationObserver((N) => {
+    for (const k of N)
       if (k.type === "childList")
         for (const G of k.addedNodes)
           G.tagName === "LINK" && G.rel === "modulepreload" && r(G);
   }).observe(document, { childList: !0, subtree: !0 });
-  function Z(j) {
+  function Z(N) {
     const k = {};
     return (
-      j.integrity && (k.integrity = j.integrity),
-      j.referrerPolicy && (k.referrerPolicy = j.referrerPolicy),
-      j.crossOrigin === "use-credentials"
+      N.integrity && (k.integrity = N.integrity),
+      N.referrerPolicy && (k.referrerPolicy = N.referrerPolicy),
+      N.crossOrigin === "use-credentials"
         ? (k.credentials = "include")
-        : j.crossOrigin === "anonymous"
+        : N.crossOrigin === "anonymous"
         ? (k.credentials = "omit")
         : (k.credentials = "same-origin"),
       k
     );
   }
-  function r(j) {
-    if (j.ep) return;
-    j.ep = !0;
-    const k = Z(j);
-    fetch(j.href, k);
+  function r(N) {
+    if (N.ep) return;
+    N.ep = !0;
+    const k = Z(N);
+    fetch(N.href, k);
   }
 })();
 var Wf = { exports: {} },
@@ -42,21 +42,21 @@ var Wf = { exports: {} },
 function mr() {
   if (G0) return Ae;
   G0 = 1;
-  var M = Symbol.for("react.transitional.element"),
+  var _ = Symbol.for("react.transitional.element"),
     K = Symbol.for("react.fragment");
-  function Z(r, j, k) {
+  function Z(r, N, k) {
     var G = null;
     if (
       (k !== void 0 && (G = "" + k),
-      j.key !== void 0 && (G = "" + j.key),
-      "key" in j)
+      N.key !== void 0 && (G = "" + N.key),
+      "key" in N)
     ) {
       k = {};
-      for (var il in j) il !== "key" && (k[il] = j[il]);
-    } else k = j;
+      for (var il in N) il !== "key" && (k[il] = N[il]);
+    } else k = N;
     return (
-      (j = k.ref),
-      { $$typeof: M, type: r, key: G, ref: j !== void 0 ? j : null, props: k }
+      (N = k.ref),
+      { $$typeof: _, type: r, key: G, ref: N !== void 0 ? N : null, props: k }
     );
   }
   return (Ae.Fragment = K), (Ae.jsx = Z), (Ae.jsxs = Z), Ae;
@@ -80,15 +80,15 @@ var S = gr(),
 function Sr() {
   if (X0) return Q;
   X0 = 1;
-  var M = Symbol.for("react.transitional.element"),
+  var _ = Symbol.for("react.transitional.element"),
     K = Symbol.for("react.portal"),
     Z = Symbol.for("react.fragment"),
     r = Symbol.for("react.strict_mode"),
-    j = Symbol.for("react.profiler"),
+    N = Symbol.for("react.profiler"),
     k = Symbol.for("react.consumer"),
     G = Symbol.for("react.context"),
     il = Symbol.for("react.forward_ref"),
-    _ = Symbol.for("react.suspense"),
+    M = Symbol.for("react.suspense"),
     E = Symbol.for("react.memo"),
     W = Symbol.for("react.lazy"),
     A = Symbol.iterator;
@@ -138,17 +138,17 @@ function Sr() {
   var wt = Array.isArray,
     tl = { H: null, A: null, T: null, S: null },
     Ql = Object.prototype.hasOwnProperty;
-  function kt(s, z, Y, N, U, F) {
+  function kt(s, z, Y, j, U, F) {
     return (
       (Y = F.ref),
-      { $$typeof: M, type: s, key: z, ref: Y !== void 0 ? Y : null, props: F }
+      { $$typeof: _, type: s, key: z, ref: Y !== void 0 ? Y : null, props: F }
     );
   }
   function Wt(s, z) {
     return kt(s.type, z, void 0, void 0, void 0, s.props);
   }
   function x(s) {
-    return typeof s == "object" && s !== null && s.$$typeof === M;
+    return typeof s == "object" && s !== null && s.$$typeof === _;
   }
   function ul(s) {
     var z = { "=": "=0", ":": "=2" };
@@ -197,7 +197,7 @@ function Sr() {
     }
     throw s;
   }
-  function Zl(s, z, Y, N, U) {
+  function Zl(s, z, Y, j, U) {
     var F = typeof s;
     (F === "undefined" || F === "boolean") && (s = null);
     var V = !1;
@@ -211,18 +211,18 @@ function Sr() {
           break;
         case "object":
           switch (s.$$typeof) {
-            case M:
+            case _:
             case K:
               V = !0;
               break;
             case W:
-              return (V = s._init), Zl(V(s._payload), z, Y, N, U);
+              return (V = s._init), Zl(V(s._payload), z, Y, j, U);
           }
       }
     if (V)
       return (
         (U = U(s)),
-        (V = N === "" ? "." + Mt(s, 0) : N),
+        (V = j === "" ? "." + Mt(s, 0) : j),
         wt(U)
           ? ((Y = ""),
             V != null && (Y = V.replace(lt, "$&/") + "/"),
@@ -243,15 +243,15 @@ function Sr() {
         1
       );
     V = 0;
-    var Gl = N === "" ? "." : N + ":";
+    var Gl = j === "" ? "." : j + ":";
     if (wt(s))
       for (var al = 0; al < s.length; al++)
-        (N = s[al]), (F = Gl + Mt(N, al)), (V += Zl(N, z, Y, F, U));
+        (j = s[al]), (F = Gl + Mt(j, al)), (V += Zl(j, z, Y, F, U));
     else if (((al = D(s)), typeof al == "function"))
-      for (s = al.call(s), al = 0; !(N = s.next()).done; )
-        (N = N.value), (F = Gl + Mt(N, al++)), (V += Zl(N, z, Y, F, U));
+      for (s = al.call(s), al = 0; !(j = s.next()).done; )
+        (j = j.value), (F = Gl + Mt(j, al++)), (V += Zl(j, z, Y, F, U));
     else if (F === "object") {
-      if (typeof s.then == "function") return Zl(Ut(s), z, Y, N, U);
+      if (typeof s.then == "function") return Zl(Ut(s), z, Y, j, U);
       throw (
         ((z = String(s)),
         Error(
@@ -267,13 +267,13 @@ function Sr() {
   }
   function O(s, z, Y) {
     if (s == null) return s;
-    var N = [],
+    var j = [],
       U = 0;
     return (
-      Zl(s, N, "", "", function (F) {
+      Zl(s, j, "", "", function (F) {
         return z.call(Y, F, U++);
       }),
-      N
+      j
     );
   }
   function X(s) {
@@ -363,10 +363,10 @@ function Sr() {
     }),
     (Q.Component = Jl),
     (Q.Fragment = Z),
-    (Q.Profiler = j),
+    (Q.Profiler = N),
     (Q.PureComponent = Bl),
     (Q.StrictMode = r),
-    (Q.Suspense = _),
+    (Q.Suspense = M),
     (Q.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE = tl),
     (Q.act = function () {
       throw Error("act(...) is not supported in production builds of React.");
@@ -381,7 +381,7 @@ function Sr() {
         throw Error(
           "The argument must be a React element, but you passed " + s + "."
         );
-      var N = yl({}, s.props),
+      var j = yl({}, s.props),
         U = s.key,
         F = void 0;
       if (z != null)
@@ -393,15 +393,15 @@ function Sr() {
             V === "__self" ||
             V === "__source" ||
             (V === "ref" && z.ref === void 0) ||
-            (N[V] = z[V]);
+            (j[V] = z[V]);
       var V = arguments.length - 2;
-      if (V === 1) N.children = Y;
+      if (V === 1) j.children = Y;
       else if (1 < V) {
         for (var Gl = Array(V), al = 0; al < V; al++)
           Gl[al] = arguments[al + 2];
-        N.children = Gl;
+        j.children = Gl;
       }
-      return kt(s.type, U, void 0, void 0, F, N);
+      return kt(s.type, U, void 0, void 0, F, j);
     }),
     (Q.createContext = function (s) {
       return (
@@ -419,16 +419,16 @@ function Sr() {
       );
     }),
     (Q.createElement = function (s, z, Y) {
-      var N,
+      var j,
         U = {},
         F = null;
       if (z != null)
-        for (N in (z.key !== void 0 && (F = "" + z.key), z))
-          Ql.call(z, N) &&
-            N !== "key" &&
-            N !== "__self" &&
-            N !== "__source" &&
-            (U[N] = z[N]);
+        for (j in (z.key !== void 0 && (F = "" + z.key), z))
+          Ql.call(z, j) &&
+            j !== "key" &&
+            j !== "__self" &&
+            j !== "__source" &&
+            (U[j] = z[j]);
       var V = arguments.length - 2;
       if (V === 1) U.children = Y;
       else if (1 < V) {
@@ -437,7 +437,7 @@ function Sr() {
         U.children = Gl;
       }
       if (s && s.defaultProps)
-        for (N in ((V = s.defaultProps), V)) U[N] === void 0 && (U[N] = V[N]);
+        for (j in ((V = s.defaultProps), V)) U[j] === void 0 && (U[j] = V[j]);
       return kt(s, F, void 0, void 0, null, U);
     }),
     (Q.createRef = function () {
@@ -458,13 +458,13 @@ function Sr() {
         Y = {};
       tl.T = Y;
       try {
-        var N = s(),
+        var j = s(),
           U = tl.S;
-        U !== null && U(Y, N),
-          typeof N == "object" &&
-            N !== null &&
-            typeof N.then == "function" &&
-            N.then(sl, B);
+        U !== null && U(Y, j),
+          typeof j == "object" &&
+            j !== null &&
+            typeof j.then == "function" &&
+            j.then(sl, B);
       } catch (F) {
         B(F);
       } finally {
@@ -552,14 +552,14 @@ function br() {
   return (
     Z0 ||
       ((Z0 = 1),
-      (function (M) {
+      (function (_) {
         function K(O, X) {
           var B = O.length;
           O.push(X);
           l: for (; 0 < B; ) {
             var sl = (B - 1) >>> 1,
               s = O[sl];
-            if (0 < j(s, X)) (O[sl] = X), (O[B] = s), (B = sl);
+            if (0 < N(s, X)) (O[sl] = X), (O[B] = s), (B = sl);
             else break l;
           }
         }
@@ -574,40 +574,40 @@ function br() {
             O[0] = B;
             l: for (var sl = 0, s = O.length, z = s >>> 1; sl < z; ) {
               var Y = 2 * (sl + 1) - 1,
-                N = O[Y],
+                j = O[Y],
                 U = Y + 1,
                 F = O[U];
-              if (0 > j(N, B))
-                U < s && 0 > j(F, N)
+              if (0 > N(j, B))
+                U < s && 0 > N(F, j)
                   ? ((O[sl] = F), (O[U] = B), (sl = U))
-                  : ((O[sl] = N), (O[Y] = B), (sl = Y));
-              else if (U < s && 0 > j(F, B)) (O[sl] = F), (O[U] = B), (sl = U);
+                  : ((O[sl] = j), (O[Y] = B), (sl = Y));
+              else if (U < s && 0 > N(F, B)) (O[sl] = F), (O[U] = B), (sl = U);
               else break l;
             }
           }
           return X;
         }
-        function j(O, X) {
+        function N(O, X) {
           var B = O.sortIndex - X.sortIndex;
           return B !== 0 ? B : O.id - X.id;
         }
         if (
-          ((M.unstable_now = void 0),
+          ((_.unstable_now = void 0),
           typeof performance == "object" &&
             typeof performance.now == "function")
         ) {
           var k = performance;
-          M.unstable_now = function () {
+          _.unstable_now = function () {
             return k.now();
           };
         } else {
           var G = Date,
             il = G.now();
-          M.unstable_now = function () {
+          _.unstable_now = function () {
             return G.now() - il;
           };
         }
-        var _ = [],
+        var M = [],
           E = [],
           W = 1,
           A = null,
@@ -622,14 +622,14 @@ function br() {
           for (var X = Z(E); X !== null; ) {
             if (X.callback === null) r(E);
             else if (X.startTime <= O)
-              r(E), (X.sortIndex = X.expirationTime), K(_, X);
+              r(E), (X.sortIndex = X.expirationTime), K(M, X);
             else break;
             X = Z(E);
           }
         }
         function wt(O) {
           if (((pl = !1), rt(O), !yl))
-            if (Z(_) !== null) (yl = !0), Ut();
+            if (Z(M) !== null) (yl = !0), Ut();
             else {
               var X = Z(E);
               X !== null && Zl(wt, X.startTime - O);
@@ -640,11 +640,11 @@ function br() {
           kt = 5,
           Wt = -1;
         function x() {
-          return !(M.unstable_now() - Wt < kt);
+          return !(_.unstable_now() - Wt < kt);
         }
         function ul() {
           if (tl) {
-            var O = M.unstable_now();
+            var O = _.unstable_now();
             Wt = O;
             var X = !0;
             try {
@@ -654,7 +654,7 @@ function br() {
                 try {
                   t: {
                     for (
-                      rt(O), A = Z(_);
+                      rt(O), A = Z(M);
                       A !== null && !(A.expirationTime > O && x());
 
                     ) {
@@ -662,13 +662,13 @@ function br() {
                       if (typeof sl == "function") {
                         (A.callback = null), (D = A.priorityLevel);
                         var s = sl(A.expirationTime <= O);
-                        if (((O = M.unstable_now()), typeof s == "function")) {
+                        if (((O = _.unstable_now()), typeof s == "function")) {
                           (A.callback = s), rt(O), (X = !0);
                           break t;
                         }
-                        A === Z(_) && r(_), rt(O);
-                      } else r(_);
-                      A = Z(_);
+                        A === Z(M) && r(M), rt(O);
+                      } else r(M);
+                      A = Z(M);
                     }
                     if (A !== null) X = !0;
                     else {
@@ -708,35 +708,35 @@ function br() {
         }
         function Zl(O, X) {
           Ql = Jl(function () {
-            O(M.unstable_now());
+            O(_.unstable_now());
           }, X);
         }
-        (M.unstable_IdlePriority = 5),
-          (M.unstable_ImmediatePriority = 1),
-          (M.unstable_LowPriority = 4),
-          (M.unstable_NormalPriority = 3),
-          (M.unstable_Profiling = null),
-          (M.unstable_UserBlockingPriority = 2),
-          (M.unstable_cancelCallback = function (O) {
+        (_.unstable_IdlePriority = 5),
+          (_.unstable_ImmediatePriority = 1),
+          (_.unstable_LowPriority = 4),
+          (_.unstable_NormalPriority = 3),
+          (_.unstable_Profiling = null),
+          (_.unstable_UserBlockingPriority = 2),
+          (_.unstable_cancelCallback = function (O) {
             O.callback = null;
           }),
-          (M.unstable_continueExecution = function () {
+          (_.unstable_continueExecution = function () {
             yl || fl || ((yl = !0), Ut());
           }),
-          (M.unstable_forceFrameRate = function (O) {
+          (_.unstable_forceFrameRate = function (O) {
             0 > O || 125 < O
               ? console.error(
                   "forceFrameRate takes a positive int between 0 and 125, forcing frame rates higher than 125 fps is not supported"
                 )
               : (kt = 0 < O ? Math.floor(1e3 / O) : 5);
           }),
-          (M.unstable_getCurrentPriorityLevel = function () {
+          (_.unstable_getCurrentPriorityLevel = function () {
             return D;
           }),
-          (M.unstable_getFirstCallbackNode = function () {
-            return Z(_);
+          (_.unstable_getFirstCallbackNode = function () {
+            return Z(M);
           }),
-          (M.unstable_next = function (O) {
+          (_.unstable_next = function (O) {
             switch (D) {
               case 1:
               case 2:
@@ -754,9 +754,9 @@ function br() {
               D = B;
             }
           }),
-          (M.unstable_pauseExecution = function () {}),
-          (M.unstable_requestPaint = function () {}),
-          (M.unstable_runWithPriority = function (O, X) {
+          (_.unstable_pauseExecution = function () {}),
+          (_.unstable_requestPaint = function () {}),
+          (_.unstable_runWithPriority = function (O, X) {
             switch (O) {
               case 1:
               case 2:
@@ -775,8 +775,8 @@ function br() {
               D = B;
             }
           }),
-          (M.unstable_scheduleCallback = function (O, X, B) {
-            var sl = M.unstable_now();
+          (_.unstable_scheduleCallback = function (O, X, B) {
+            var sl = _.unstable_now();
             switch (
               (typeof B == "object" && B !== null
                 ? ((B = B.delay),
@@ -812,15 +812,15 @@ function br() {
               B > sl
                 ? ((O.sortIndex = B),
                   K(E, O),
-                  Z(_) === null &&
+                  Z(M) === null &&
                     O === Z(E) &&
                     (pl ? (_t(Ql), (Ql = -1)) : (pl = !0), Zl(wt, B - sl)))
-                : ((O.sortIndex = s), K(_, O), yl || fl || ((yl = !0), Ut())),
+                : ((O.sortIndex = s), K(M, O), yl || fl || ((yl = !0), Ut())),
               O
             );
           }),
-          (M.unstable_shouldYield = x),
-          (M.unstable_wrapCallback = function (O) {
+          (_.unstable_shouldYield = x),
+          (_.unstable_wrapCallback = function (O) {
             var X = D;
             return function () {
               var B = D;
@@ -854,9 +854,9 @@ var lc = { exports: {} },
 function Tr() {
   if (L0) return Yl;
   L0 = 1;
-  var M = tc();
-  function K(_) {
-    var E = "https://react.dev/errors/" + _;
+  var _ = tc();
+  function K(M) {
+    var E = "https://react.dev/errors/" + M;
     if (1 < arguments.length) {
       E += "?args[]=" + encodeURIComponent(arguments[1]);
       for (var W = 2; W < arguments.length; W++)
@@ -864,7 +864,7 @@ function Tr() {
     }
     return (
       "Minified React error #" +
-      _ +
+      M +
       "; visit " +
       E +
       " for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
@@ -888,43 +888,43 @@ function Tr() {
       p: 0,
       findDOMNode: null,
     },
-    j = Symbol.for("react.portal");
-  function k(_, E, W) {
+    N = Symbol.for("react.portal");
+  function k(M, E, W) {
     var A =
       3 < arguments.length && arguments[3] !== void 0 ? arguments[3] : null;
     return {
-      $$typeof: j,
+      $$typeof: N,
       key: A == null ? null : "" + A,
-      children: _,
+      children: M,
       containerInfo: E,
       implementation: W,
     };
   }
-  var G = M.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
-  function il(_, E) {
-    if (_ === "font") return "";
+  var G = _.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
+  function il(M, E) {
+    if (M === "font") return "";
     if (typeof E == "string") return E === "use-credentials" ? E : "";
   }
   return (
     (Yl.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE = r),
-    (Yl.createPortal = function (_, E) {
+    (Yl.createPortal = function (M, E) {
       var W =
         2 < arguments.length && arguments[2] !== void 0 ? arguments[2] : null;
       if (!E || (E.nodeType !== 1 && E.nodeType !== 9 && E.nodeType !== 11))
         throw Error(K(299));
-      return k(_, E, null, W);
+      return k(M, E, null, W);
     }),
-    (Yl.flushSync = function (_) {
+    (Yl.flushSync = function (M) {
       var E = G.T,
         W = r.p;
       try {
-        if (((G.T = null), (r.p = 2), _)) return _();
+        if (((G.T = null), (r.p = 2), M)) return M();
       } finally {
         (G.T = E), (r.p = W), r.d.f();
       }
     }),
-    (Yl.preconnect = function (_, E) {
-      typeof _ == "string" &&
+    (Yl.preconnect = function (M, E) {
+      typeof M == "string" &&
         (E
           ? ((E = E.crossOrigin),
             (E =
@@ -934,25 +934,25 @@ function Tr() {
                   : ""
                 : void 0))
           : (E = null),
-        r.d.C(_, E));
+        r.d.C(M, E));
     }),
-    (Yl.prefetchDNS = function (_) {
-      typeof _ == "string" && r.d.D(_);
+    (Yl.prefetchDNS = function (M) {
+      typeof M == "string" && r.d.D(M);
     }),
-    (Yl.preinit = function (_, E) {
-      if (typeof _ == "string" && E && typeof E.as == "string") {
+    (Yl.preinit = function (M, E) {
+      if (typeof M == "string" && E && typeof E.as == "string") {
         var W = E.as,
           A = il(W, E.crossOrigin),
           D = typeof E.integrity == "string" ? E.integrity : void 0,
           fl = typeof E.fetchPriority == "string" ? E.fetchPriority : void 0;
         W === "style"
-          ? r.d.S(_, typeof E.precedence == "string" ? E.precedence : void 0, {
+          ? r.d.S(M, typeof E.precedence == "string" ? E.precedence : void 0, {
               crossOrigin: A,
               integrity: D,
               fetchPriority: fl,
             })
           : W === "script" &&
-            r.d.X(_, {
+            r.d.X(M, {
               crossOrigin: A,
               integrity: D,
               fetchPriority: fl,
@@ -960,29 +960,29 @@ function Tr() {
             });
       }
     }),
-    (Yl.preinitModule = function (_, E) {
-      if (typeof _ == "string")
+    (Yl.preinitModule = function (M, E) {
+      if (typeof M == "string")
         if (typeof E == "object" && E !== null) {
           if (E.as == null || E.as === "script") {
             var W = il(E.as, E.crossOrigin);
-            r.d.M(_, {
+            r.d.M(M, {
               crossOrigin: W,
               integrity: typeof E.integrity == "string" ? E.integrity : void 0,
               nonce: typeof E.nonce == "string" ? E.nonce : void 0,
             });
           }
-        } else E == null && r.d.M(_);
+        } else E == null && r.d.M(M);
     }),
-    (Yl.preload = function (_, E) {
+    (Yl.preload = function (M, E) {
       if (
-        typeof _ == "string" &&
+        typeof M == "string" &&
         typeof E == "object" &&
         E !== null &&
         typeof E.as == "string"
       ) {
         var W = E.as,
           A = il(W, E.crossOrigin);
-        r.d.L(_, W, {
+        r.d.L(M, W, {
           crossOrigin: A,
           integrity: typeof E.integrity == "string" ? E.integrity : void 0,
           nonce: typeof E.nonce == "string" ? E.nonce : void 0,
@@ -998,25 +998,25 @@ function Tr() {
         });
       }
     }),
-    (Yl.preloadModule = function (_, E) {
-      if (typeof _ == "string")
+    (Yl.preloadModule = function (M, E) {
+      if (typeof M == "string")
         if (E) {
           var W = il(E.as, E.crossOrigin);
-          r.d.m(_, {
+          r.d.m(M, {
             as: typeof E.as == "string" && E.as !== "script" ? E.as : void 0,
             crossOrigin: W,
             integrity: typeof E.integrity == "string" ? E.integrity : void 0,
           });
-        } else r.d.m(_);
+        } else r.d.m(M);
     }),
-    (Yl.requestFormReset = function (_) {
-      r.d.r(_);
+    (Yl.requestFormReset = function (M) {
+      r.d.r(M);
     }),
-    (Yl.unstable_batchedUpdates = function (_, E) {
-      return _(E);
+    (Yl.unstable_batchedUpdates = function (M, E) {
+      return M(E);
     }),
-    (Yl.useFormState = function (_, E, W) {
-      return G.H.useFormState(_, E, W);
+    (Yl.useFormState = function (M, E, W) {
+      return G.H.useFormState(M, E, W);
     }),
     (Yl.useFormStatus = function () {
       return G.H.useHostTransitionStatus();
@@ -1029,7 +1029,7 @@ var K0;
 function Ar() {
   if (K0) return lc.exports;
   K0 = 1;
-  function M() {
+  function _() {
     if (
       !(
         typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ > "u" ||
@@ -1037,12 +1037,12 @@ function Ar() {
       )
     )
       try {
-        __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(M);
+        __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(_);
       } catch (K) {
         console.error(K);
       }
   }
-  return M(), (lc.exports = Tr()), lc.exports;
+  return _(), (lc.exports = Tr()), lc.exports;
 }
 /**
  * @license React
@@ -1056,7 +1056,7 @@ function Ar() {
 function zr() {
   if (J0) return ze;
   J0 = 1;
-  var M = Er(),
+  var _ = Er(),
     K = tc(),
     Z = Ar();
   function r(l) {
@@ -1074,13 +1074,13 @@ function zr() {
       " for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     );
   }
-  function j(l) {
+  function N(l) {
     return !(!l || (l.nodeType !== 1 && l.nodeType !== 9 && l.nodeType !== 11));
   }
   var k = Symbol.for("react.element"),
     G = Symbol.for("react.transitional.element"),
     il = Symbol.for("react.portal"),
-    _ = Symbol.for("react.fragment"),
+    M = Symbol.for("react.fragment"),
     E = Symbol.for("react.strict_mode"),
     W = Symbol.for("react.profiler"),
     A = Symbol.for("react.provider"),
@@ -1107,7 +1107,7 @@ function zr() {
       return l.$$typeof === kt ? null : l.displayName || l.name || null;
     if (typeof l == "string") return l;
     switch (l) {
-      case _:
+      case M:
         return "Fragment";
       case il:
         return "Portal";
@@ -1416,7 +1416,7 @@ Error generating stack: ` +
     }
     return null;
   }
-  var N = Array.isArray,
+  var j = Array.isArray,
     U = Z.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE,
     F = { pending: !1, data: null, method: null, action: null },
     V = [],
@@ -1475,19 +1475,19 @@ Error generating stack: ` +
       De.current === l && (El(De), (ge._currentValue = F));
   }
   var Xn = Object.prototype.hasOwnProperty,
-    Qn = M.unstable_scheduleCallback,
-    Zn = M.unstable_cancelCallback,
-    k0 = M.unstable_shouldYield,
-    W0 = M.unstable_requestPaint,
-    Et = M.unstable_now,
-    $0 = M.unstable_getCurrentPriorityLevel,
-    uc = M.unstable_ImmediatePriority,
-    ac = M.unstable_UserBlockingPriority,
-    Me = M.unstable_NormalPriority,
-    F0 = M.unstable_LowPriority,
-    ec = M.unstable_IdlePriority,
-    P0 = M.log,
-    I0 = M.unstable_setDisableYieldValue,
+    Qn = _.unstable_scheduleCallback,
+    Zn = _.unstable_cancelCallback,
+    k0 = _.unstable_shouldYield,
+    W0 = _.unstable_requestPaint,
+    Et = _.unstable_now,
+    $0 = _.unstable_getCurrentPriorityLevel,
+    uc = _.unstable_ImmediatePriority,
+    ac = _.unstable_UserBlockingPriority,
+    Me = _.unstable_NormalPriority,
+    F0 = _.unstable_LowPriority,
+    ec = _.unstable_IdlePriority,
+    P0 = _.log,
+    I0 = _.unstable_setDisableYieldValue,
     _a = null,
     wl = null;
   function lv(l) {
@@ -2037,7 +2037,7 @@ Error generating stack: ` +
     if (t == null) {
       if (a != null) {
         if (u != null) throw Error(r(92));
-        if (N(a)) {
+        if (j(a)) {
           if (1 < a.length) throw Error(r(93));
           a = a[0];
         }
@@ -3361,7 +3361,7 @@ Error generating stack: ` +
     }
     function c(h, d, o, b) {
       var R = o.type;
-      return R === _
+      return R === M
         ? g(h, d, o.props.children, b, o.key)
         : d !== null &&
           (d.elementType === R ||
@@ -3410,7 +3410,7 @@ Error generating stack: ` +
             var b = d._init;
             return (d = b(d._payload)), T(h, d, o);
         }
-        if (N(d) || Ql(d))
+        if (j(d) || Ql(d))
           return (d = Gu(d, h.mode, o, null)), (d.return = h), d;
         if (typeof d.then == "function") return T(h, ke(d), o);
         if (d.$$typeof === fl) return T(h, vn(h, d), o);
@@ -3435,7 +3435,7 @@ Error generating stack: ` +
           case Bl:
             return (R = o._init), (o = R(o._payload)), y(h, d, o, b);
         }
-        if (N(o) || Ql(o)) return R !== null ? null : g(h, d, o, b, null);
+        if (j(o) || Ql(o)) return R !== null ? null : g(h, d, o, b, null);
         if (typeof o.then == "function") return y(h, d, ke(o), b);
         if (o.$$typeof === fl) return y(h, d, vn(h, o), b);
         We(h, o);
@@ -3463,7 +3463,7 @@ Error generating stack: ` +
             var J = b._init;
             return (b = J(b._payload)), m(h, d, o, b, R);
         }
-        if (N(b) || Ql(b)) return (h = h.get(o) || null), g(d, h, b, R, null);
+        if (j(b) || Ql(b)) return (h = h.get(o) || null), g(d, h, b, R, null);
         if (typeof b.then == "function") return m(h, d, o, ke(b), R);
         if (b.$$typeof === fl) return m(h, d, o, vn(d, b), R);
         We(d, b);
@@ -3567,7 +3567,7 @@ Error generating stack: ` +
       if (
         (typeof o == "object" &&
           o !== null &&
-          o.type === _ &&
+          o.type === M &&
           o.key === null &&
           (o = o.props.children),
         typeof o == "object" && o !== null)
@@ -3577,7 +3577,7 @@ Error generating stack: ` +
             l: {
               for (var R = o.key; d !== null; ) {
                 if (d.key === R) {
-                  if (((R = o.type), R === _)) {
+                  if (((R = o.type), R === M)) {
                     if (d.tag === 7) {
                       u(h, d.sibling),
                         (b = e(d, o.props.children)),
@@ -3604,7 +3604,7 @@ Error generating stack: ` +
                 } else t(h, d);
                 d = d.sibling;
               }
-              o.type === _
+              o.type === M
                 ? ((b = Gu(o.props.children, h.mode, b, o.key)),
                   (b.return = h),
                   (h = b))
@@ -3641,7 +3641,7 @@ Error generating stack: ` +
           case Bl:
             return (R = o._init), (o = R(o._payload)), Sl(h, d, o, b);
         }
-        if (N(o)) return p(h, d, o, b);
+        if (j(o)) return p(h, d, o, b);
         if (Ql(o)) {
           if (((R = Ql(o)), typeof R != "function")) throw Error(r(150));
           return (o = R.call(o)), C(h, d, o, b);
@@ -3753,8 +3753,8 @@ Error generating stack: ` +
                 });
             };
           },
-    ah = M.unstable_scheduleCallback,
-    eh = M.unstable_NormalPriority,
+    ah = _.unstable_scheduleCallback,
+    eh = _.unstable_NormalPriority,
     Ol = {
       $$typeof: fl,
       Consumer: null,
@@ -7855,7 +7855,7 @@ Error generating stack: ` +
         : 5;
     else
       l: switch (l) {
-        case _:
+        case M:
           return Gu(u.children, e, n, t);
         case E:
           (i = 8), (e |= 24);
@@ -11733,13 +11733,13 @@ Error generating stack: ` +
       ((l.blockedOn = null),
       wf ||
         ((wf = !0),
-        M.unstable_scheduleCallback(M.unstable_NormalPriority, rr)));
+        _.unstable_scheduleCallback(_.unstable_NormalPriority, rr)));
   }
   var Yn = null;
   function Y0(l) {
     Yn !== l &&
       ((Yn = l),
-      M.unstable_scheduleCallback(M.unstable_NormalPriority, function () {
+      _.unstable_scheduleCallback(_.unstable_NormalPriority, function () {
         Yn === l && (Yn = null);
         for (var t = 0; t < l.length; t += 3) {
           var u = l[t],
@@ -11855,7 +11855,7 @@ Error generating stack: ` +
   }
   return (
     (ze.createRoot = function (l, t) {
-      if (!j(l)) throw Error(r(299));
+      if (!N(l)) throw Error(r(299));
       var u = !1,
         a = "",
         e = ld,
@@ -11878,7 +11878,7 @@ Error generating stack: ` +
       );
     }),
     (ze.hydrateRoot = function (l, t, u) {
-      if (!j(l)) throw Error(r(299));
+      if (!N(l)) throw Error(r(299));
       var a = !1,
         e = "",
         n = ld,
@@ -11919,7 +11919,7 @@ var w0;
 function Dr() {
   if (w0) return Ff.exports;
   w0 = 1;
-  function M() {
+  function _() {
     if (
       !(
         typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ > "u" ||
@@ -11927,18 +11927,18 @@ function Dr() {
       )
     )
       try {
-        __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(M);
+        __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(_);
       } catch (K) {
         console.error(K);
       }
   }
-  return M(), (Ff.exports = zr()), Ff.exports;
+  return _(), (Ff.exports = zr()), Ff.exports;
 }
 var Or = Dr();
-function Zu({ id: M, iTask: K, onDelete: Z, setTasks: r }) {
-  const [j, k] = Jt.useState(!1),
+function Zu({ id: _, iTask: K, onDelete: Z, setTasks: r }) {
+  const [N, k] = Jt.useState(!1),
     [G, il] = Jt.useState(K),
-    _ = (A) => {
+    M = (A) => {
       A.preventDefault(),
         !Object.values(G).some((D) => !D.trim()) && (k(!1), r(G));
     },
@@ -11956,15 +11956,11 @@ function Zu({ id: M, iTask: K, onDelete: Z, setTasks: r }) {
     className: "slot",
     children: [
       S.jsx("div", {
-        style: { display: `${j ? "none" : "block"}` },
+        style: { display: `${N ? "none" : "block"}` },
         children: S.jsxs("div", {
           className: "single",
           children: [
-            S.jsx("input", {
-              type: "checkbox",
-              id: `checkbox-${M}`,
-              style: { display: `${j ? "none" : "block"}` },
-            }),
+            S.jsx("input", { type: "checkbox", id: `checkbox-${_}` }),
             S.jsxs("div", {
               onClick: W,
               style: {
@@ -11988,7 +11984,7 @@ function Zu({ id: M, iTask: K, onDelete: Z, setTasks: r }) {
             S.jsxs("div", {
               className: "sbuttons",
               children: [
-                S.jsx("button", { disabled: j, onClick: E, children: "Edit" }),
+                S.jsx("button", { disabled: N, onClick: E, children: "Edit" }),
                 S.jsx("button", { onClick: Z, children: "X" }),
               ],
             }),
@@ -11996,8 +11992,8 @@ function Zu({ id: M, iTask: K, onDelete: Z, setTasks: r }) {
         }),
       }),
       S.jsxs("form", {
-        onSubmit: _,
-        style: { display: `${j ? "block" : "none"}` },
+        onSubmit: M,
+        style: { display: `${N ? "block" : "none"}` },
         children: [
           S.jsxs("div", {
             className: "add",
@@ -12104,18 +12100,18 @@ function Zu({ id: M, iTask: K, onDelete: Z, setTasks: r }) {
   });
 }
 function _r() {
-  const M =
+  const _ =
       localStorage.getItem("theme") ||
       window.matchMedia("(prefers-color-scheme: dark)").matches
         ? "dark"
         : "light",
-    [K, Z] = Jt.useState(M);
+    [K, Z] = Jt.useState(_);
   K === "dark" && document.documentElement.classList.add("dark");
   const r = () => {
-    let j = K === "light" ? "dark" : "light";
+    let N = K === "light" ? "dark" : "light";
     document.documentElement.classList.toggle("dark"),
-      Z(j),
-      localStorage.setItem("theme", j);
+      Z(N),
+      localStorage.setItem("theme", N);
   };
   return S.jsx("button", {
     className: "theme-button",
@@ -12124,19 +12120,19 @@ function _r() {
   });
 }
 function Mr() {
-  const M = {
+  const _ = {
       title: "",
       description: "",
       lastDate: new Date().toISOString().split("T")[0],
       priority: "",
       status: "To-Do",
     },
-    [K, Z] = Jt.useState(M),
-    [r, j] = Jt.useState([]),
+    [K, Z] = Jt.useState(_),
+    [r, N] = Jt.useState([]),
     [k, G] = Jt.useState("all");
   Jt.useEffect(() => {
     const A = JSON.parse(localStorage.getItem("tasks")) || [];
-    j(A);
+    N(A);
   }, []),
     Jt.useEffect(() => {
       localStorage.setItem("tasks", JSON.stringify(r));
@@ -12145,16 +12141,16 @@ function Mr() {
       if ((A.preventDefault(), Object.values(K).some((fl) => !fl.trim())))
         return;
       const D = [...r, { ...K, date: new Date().toISOString() }];
-      j(D);
+      N(D), Z(_);
     },
-    _ = (A) => {
-      j((D) => D.filter((fl, yl) => yl !== A));
+    M = (A) => {
+      N((D) => D.filter((fl, yl) => yl !== A));
     },
     E = (A) => (D) => {
-      j((fl) => fl.map((yl, pl) => (pl === A ? { ...D } : yl)));
+      N((fl) => fl.map((yl, pl) => (pl === A ? { ...D } : yl)));
     },
     W = () => {
-      j((A) => {
+      N((A) => {
         const D = A.filter(
           (fl, yl) => !document.getElementById(`checkbox-${yl}`).checked
         );
@@ -12293,7 +12289,7 @@ function Mr() {
                     children: S.jsx(Zu, {
                       id: D,
                       iTask: A,
-                      onDelete: () => _(D),
+                      onDelete: () => M(D),
                       setTasks: E(D),
                     }),
                   },
@@ -12317,7 +12313,7 @@ function Mr() {
                                 children: S.jsx(Zu, {
                                   id: D,
                                   iTask: A,
-                                  onDelete: () => _(D),
+                                  onDelete: () => M(D),
                                   setTasks: E(D),
                                 }),
                               },
@@ -12341,7 +12337,7 @@ function Mr() {
                                 children: S.jsx(Zu, {
                                   id: D,
                                   iTask: A,
-                                  onDelete: () => _(D),
+                                  onDelete: () => M(D),
                                   setTasks: E(D),
                                 }),
                               },
@@ -12365,7 +12361,7 @@ function Mr() {
                                 children: S.jsx(Zu, {
                                   id: D,
                                   iTask: A,
-                                  onDelete: () => _(D),
+                                  onDelete: () => M(D),
                                   setTasks: E(D),
                                 }),
                               },
@@ -12394,7 +12390,7 @@ function Mr() {
                                 children: S.jsx(Zu, {
                                   id: D,
                                   iTask: A,
-                                  onDelete: () => _(D),
+                                  onDelete: () => M(D),
                                   setTasks: E(D),
                                 }),
                               },
@@ -12418,7 +12414,7 @@ function Mr() {
                                 children: S.jsx(Zu, {
                                   id: D,
                                   iTask: A,
-                                  onDelete: () => _(D),
+                                  onDelete: () => M(D),
                                   setTasks: E(D),
                                 }),
                               },
@@ -12442,7 +12438,7 @@ function Mr() {
                                 children: S.jsx(Zu, {
                                   id: D,
                                   iTask: A,
-                                  onDelete: () => _(D),
+                                  onDelete: () => M(D),
                                   setTasks: E(D),
                                 }),
                               },
