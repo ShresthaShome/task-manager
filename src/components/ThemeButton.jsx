@@ -1,11 +1,7 @@
 import { useState } from "react";
 
 export default function ThemeButton() {
-  const currentTheme =
-    localStorage.getItem("theme") ||
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light" || "light";
+  const currentTheme = localStorage.getItem("theme") || "light";
 
   const [theme, setTheme] = useState(currentTheme);
 
@@ -22,7 +18,7 @@ export default function ThemeButton() {
 
   return (
     <button className="theme-button" onClick={toggleTheme}>
-      {theme === "dark" ? "🌛" : "🌞"}
+      {theme === "light" ? "🌛" : "🌞"}
     </button>
   );
 }
