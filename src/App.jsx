@@ -33,7 +33,7 @@ function App() {
     const newTasks = [...tasks, { ...task, date: new Date().toISOString() }];
 
     setTasks(newTasks);
-    //setTask(cleanTask);
+    setTask(cleanTask);
   };
 
   const handleDelete = (i) => {

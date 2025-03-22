@@ -29,11 +29,7 @@ export default function Slot({ id, iTask, onDelete, setTasks }) {
     <div className="slot">
       <div style={{ display: `${!edit ? "block" : "none"}` }}>
         <div className="single">
-          <input
-            type="checkbox"
-            id={`checkbox-${id}`}
-            style={{ display: `${!edit ? "block" : "none"}` }}
-          />
+          <input type="checkbox" id={`checkbox-${id}`} />
           <div
             onClick={onSlotClick}
             style={{

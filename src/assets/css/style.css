@@ -18,7 +18,7 @@
 main {
   margin-top: 50px;
   padding: 25px;
-  min-width: 400px;
+  max-width: 100vw;
 }
 
 .add {
@@ -116,6 +116,7 @@ select {
 .single > input {
   width: 20px;
   height: 20px;
+  border-radius: 5px;
 }
 
 .mbuttons {
