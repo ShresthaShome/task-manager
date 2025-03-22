@@ -113,7 +113,7 @@ button:focus-visible {
 main {
   margin-top: 50px;
   padding: 25px;
-  min-width: 300px;
+  min-width: 400px;
 }
 .add {
   display: flex;
@@ -231,7 +231,7 @@ a {
 }
 @media screen and (min-width: 800px) {
   main {
-    min-width: 500px;
+    min-width: 550px;
   }
 }
 input,
