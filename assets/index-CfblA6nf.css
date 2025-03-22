@@ -1,0 +1,241 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: #ffffffde;
+  background-color: #242424;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #fff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 0.3s;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+@keyframes logo-spin {
+  0% {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+.card {
+  padding: 2em;
+}
+.read-the-docs {
+  color: #888;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+}
+:root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(#7d7360, #86864f, #7d7360);
+}
+.dark {
+  background: linear-gradient(#b5b36f, #a68b68, #b5b36f);
+}
+main {
+  margin-top: 50px;
+  padding: 25px;
+  min-width: 300px;
+}
+.add {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-inline: 5px;
+  padding: 5px;
+}
+.add > input,
+textarea {
+  width: 60%;
+  min-height: 30px;
+  font-size: 18px;
+}
+.add > select {
+  width: 62%;
+}
+h1 {
+  color: #edea24;
+}
+h2 {
+  color: #00a3fb;
+}
+h3 {
+  color: #0cd1c7;
+}
+form > button {
+  width: 80%;
+  max-height: 50px;
+  text-align: center;
+  margin: 10px auto auto;
+  background: #3601f6;
+  font-size: larger;
+}
+label {
+  color: #02fa1f;
+}
+select {
+  min-width: 100px;
+  min-height: 30px;
+  text-align: center;
+  font-size: medium;
+}
+.delbutton {
+  width: 130px;
+  height: 30px;
+  padding: 0;
+  font-size: 16px;
+  margin-left: 10px;
+  background: #ff5874;
+}
+.slot {
+  min-width: 100%;
+  margin-left: -40px;
+  margin-top: 10px;
+  border: 1px solid #7f7fd5;
+}
+.single {
+  display: flex;
+  gap: 50px;
+  padding: 5px;
+  justify-content: space-between;
+  align-items: center;
+  border: #02fa1f 1px solid;
+}
+.sbuttons {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 5px;
+}
+.sbuttons > button {
+  width: 100px;
+  height: 22px;
+  padding: 0;
+  font-size: 14px;
+  background: #f9f900;
+}
+.single > input {
+  width: 20px;
+  height: 20px;
+}
+.mbuttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  gap: 10px;
+}
+.mbuttons > button {
+  width: 100px;
+  height: 30px;
+  padding: 0;
+  font-size: 14px;
+  background: #f9f900;
+}
+footer {
+  color: #c4c1b8;
+}
+a {
+  color: #b5132e;
+}
+.theme-button {
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  font-size: 24px;
+  background: #fff;
+  border-radius: 50%;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  border: 1px solid transparent;
+}
+@media screen and (min-width: 800px) {
+  main {
+    min-width: 500px;
+  }
+}
+input,
+textarea,
+select {
+  border-radius: 5px;
+}
