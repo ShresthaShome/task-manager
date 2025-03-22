@@ -34,7 +34,13 @@ export default function Slot({ id, iTask, onDelete, setTasks }) {
             id={`checkbox-${id}`}
             style={{ display: `${!edit ? "block" : "none"}` }}
           />
-          <div onClick={onSlotClick}>
+          <div
+            onClick={onSlotClick}
+            style={{
+              textDecoration:
+                task.status === "Completed" ? "line-through" : "none",
+            }}
+          >
             <strong>{task.title}</strong> -{" "}
             {task.description.length > 20
               ? `${task.description.substring(0, 20)}...`
